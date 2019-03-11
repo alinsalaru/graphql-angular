@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
-import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-root',
@@ -11,21 +10,15 @@ export class AppComponent {
   public title = 'My Angular App';
   public isAuthenticated: boolean;
 
-  constructor(public oktaAuth: OktaAuthService) {
-    this.oktaAuth.$authenticationState.subscribe(
-      (isAuthenticated: boolean)  => this.isAuthenticated = isAuthenticated
-    );
-  }
+  constructor() { }
 
   async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    this.isAuthenticated = true
   }
 
   login() {
-    this.oktaAuth.loginRedirect();
   }
 
   logout() {
-    this.oktaAuth.logout('/');
   }
 }

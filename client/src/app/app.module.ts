@@ -9,7 +9,6 @@ import { PlayersComponent } from './players/players.component';
 import { RankingComponent } from './ranking/ranking.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
-import { OktaAuthModule } from '@okta/okta-angular';
 
 @NgModule({
   declarations: [
@@ -24,11 +23,6 @@ import { OktaAuthModule } from '@okta/okta-angular';
     GraphQLModule,
     HttpClientModule,
     FormsModule,
-    OktaAuthModule.initAuth({
-      issuer: 'https://{YourOktaDomain}/oauth2/default',
-      redirectUri: 'http://localhost:4200/implicit/callback',
-      clientId: '{YourClientId}'
-    })
   ],
   providers: [],
   bootstrap: [AppComponent]
